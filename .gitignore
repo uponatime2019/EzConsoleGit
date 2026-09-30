@@ -1,0 +1,20 @@
+# Rust / Cargo build artifacts
+/target/
+**/*.rs.bk
+*.bk
+
+# Visual Studio / VS Code / Editors
+.vs/
+.vscode/
+*.user
+*.suo
+.idea/
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# Publish / release staging
+publish/
+dist/
+*.zip

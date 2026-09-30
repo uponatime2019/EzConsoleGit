@@ -1,0 +1,33 @@
+[package]
+name = "ezconsolegit"
+version = "1.0.0"
+description = "Fast, lightweight Git diff viewer & AI commit assistant for the terminal (Rust TUI)."
+authors = ["uponatime2019"]
+edition = "2021"
+rust-version = "1.77"
+license = "MIT"
+repository = "https://github.com/uponatime2019/EzConsoleGit"
+homepage = "https://github.com/uponatime2019/EzConsoleGit"
+readme = "README.md"
+keywords = ["git", "tui", "ratatui", "ai-commit", "terminal"]
+categories = ["command-line-utilities", "development-tools::version-control"]
+
+[[bin]]
+name = "EzConsoleGit"
+path = "src/main.rs"
+
+[workspace]
+members = ["crates/ezgit-core"]
+resolver = "2"
+
+[dependencies]
+# Pinned to 0.28 to match the crossterm that ratatui 0.29 links against, so only
+# one copy of crossterm is compiled.
+crossterm = "0.28"
+ezgit-core = { path = "crates/ezgit-core" }
+ratatui = "0.29"
+tokio = { version = "1", features = ["rt", "time", "net"] }
+
+[profile.release]
+lto = true
+strip = true

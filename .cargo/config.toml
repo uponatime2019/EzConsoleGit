@@ -1,0 +1,7 @@
+# The default rustup toolchain here is x86_64-pc-windows-gnu. MinGW binutils
+# (dlltool, for the raw-dylib import libraries in the windows-* crates) must be
+# on PATH, but the gcc driver does not need to be used for linking: pointing the
+# linker at the rust-lld bundled with Rust avoids the libgcc_eh.a quirk that
+# w64devkit builds can hit. Other targets are unaffected.
+[target.x86_64-pc-windows-gnu]
+linker = "rust-lld"
